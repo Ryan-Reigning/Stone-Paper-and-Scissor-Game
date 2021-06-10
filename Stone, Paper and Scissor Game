@@ -1,0 +1,67 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    // Write C code here
+    int mysps, comsps[3], number, replay = 0;
+    again:
+    printf("Stone = 1\nPaper = 2\nScissor = 3\n\n");
+    
+    scanf("%d", &mysps);
+    
+    if(mysps == 1){
+        printf("\nME: Stone");
+    }else if(mysps == 2){
+        printf("\nME: Paper");
+    }else if(mysps == 3){
+        printf("\nME: Scissor\n");
+    }
+    srand(time(NULL));
+    number = rand() % 4;
+        if(number == 1){
+        printf("Computer: Stone\n\n");
+    }else if(number == 2){
+        printf("Computer: Paper\n\n");
+    }else if(number == 3){
+        printf("Computer: Scissor\n\n");
+    }
+    
+    if(mysps == 1 && number == 1 ||
+       mysps == 2 && number == 2 ||
+       mysps == 3 && number == 3){
+           printf("********Tie!********\nBetter luck next time!");
+       }else if(mysps == 1 && number == 2){
+           printf("********You Lose!********\n********┐(´•_•`)┌********");
+       }else if(mysps == 1 && number == 3){
+           printf("********You Won!********\n*****▔\▁〷●‿●〷▁/▔*****");
+       }
+       else if(mysps == 2 && number == 1){
+           printf("********You Won!********\n******▔\▁〷●‿●〷▁/▔*****");
+       }else if(mysps == 2 && number == 3){
+           printf("********You Lose!********\n********┐(´•_•`)┌********");
+       }
+       else if(mysps == 3 && number == 1){
+           printf("********You Lose!********\n********┐(´•_•`)┌********");
+       }else if(mysps == 3 && number == 2){
+           printf("********You Won!********\n*****▔\▁〷●‿●〷▁/▔*****");
+       }else if(mysps > 3){
+           printf("Please choose number between 1 to 3 only");
+       }
+       
+       printf("\n\nPress 2 to play again and Press 9 to exit the game\n");
+       scanf("%d", &replay);
+       
+       if(replay == 2){
+           goto again;
+       }else if(replay == 9){
+           goto gameof;
+       }else{
+           printf("Situation did not match");
+       }
+    
+    gameof:
+    
+    return 0;
+}
